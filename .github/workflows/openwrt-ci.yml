@@ -344,3 +344,12 @@ jobs:
             [ext4版本固件](https://down.cdn.qyh0214.com/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade-gitlab.img.gz)
             [squashfs版本固件](https://down.cdn.qyh0214.com/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade-gitlab.img.gz)
             [配置文件](https://down.cdn.qyh0214.com/r4s-gitlab.config)
+
+      - name: Delete releases and workflows runs
+        uses: ophub/delete-releases-workflows@main
+        with:
+          delete_releases: true
+          releases_keep_latest: 10
+          delete_workflows: true
+          workflows_keep_day: 30
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
